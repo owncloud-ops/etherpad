@@ -22,7 +22,7 @@ RUN mkdir -p /var/lib/etherpad \
   && groupadd -g 1000 etherpad \
   && useradd -u 1000 -d /var/lib/etherpad -g etherpad -s /bin/bash -m etherpad
 
-ENV ETHERPAD_VERSION 1.6.1
+ENV ETHERPAD_VERSION 1.8.4
 ENV ETHERPAD_TARBALL https://github.com/ether/etherpad-lite/archive/${ETHERPAD_VERSION}.tar.gz
 
 RUN curl -sLo - ${ETHERPAD_TARBALL} | tar -xzf - --strip 1 -C /srv/www \
