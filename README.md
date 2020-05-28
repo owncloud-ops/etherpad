@@ -1,6 +1,6 @@
 # Etherpad
 
-[![](https://images.microbadger.com/badges/image/webhippie/etherpad.svg)](https://microbadger.com/images/webhippie/etherpad "Get your own image badge on microbadger.com")
+[![Build Status](https://drone.owncloud.com/api/badges/owncloud-ops/etherpad/status.svg)](https://drone.owncloud.com/owncloud-ops/etherpad)
 
 These are docker images for [Etherpad](http://etherpad.org/) running on an [Nodejs container](https://registry.hub.docker.com/u/webhippie/nodejs/).
 
