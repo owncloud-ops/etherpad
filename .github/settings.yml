@@ -1,7 +1,7 @@
 repository:
   name: etherpad
   description: Docker images for Etherpad
-  homepage: https://hub.docker.com/r/webhippie/etherpad
+  homepage: https://hub.docker.com/r/owncloud-ops/etherpad
   topics: docker, image, container
 
   private: false

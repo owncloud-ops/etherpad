@@ -5,11 +5,6 @@
 These are docker images for [Etherpad](http://etherpad.org/) running on an [Nodejs container](https://registry.hub.docker.com/u/webhippie/nodejs/).
 
 
-## Versions
-
-To get an overview about the available versions please take a look at the [GitHub branches](https://github.com/dockhippie/etherpad/branches/all) or our [Docker Hub tags](https://hub.docker.com/r/webhippie/etherpad/tags/), these lists are always up to date.
-
-
 ## Volumes
 
 * /var/lib/etherpad
@@ -91,16 +86,15 @@ Fork -> Patch -> Push -> Pull Request
 
 ## Authors
 
-* [Thomas Boerger](https://github.com/tboerger)
+* [ownCloud DevOps](https://github.com/orgs/owncloud-ops/people)
 
 
 ## License
 
-MIT
-
+This project is licensed under the Apache 2.0 License - see the LICENSE file for details.
 
 ## Copyright
 
 ```
-Copyright (c) 2015-2017 Thomas Boerger <http://www.webhippie.de>
+Copyright (c) 2015-2017 ownCloud
 ```
