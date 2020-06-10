@@ -23,7 +23,7 @@ RUN mkdir -p /var/lib/etherpad \
   && groupadd -g 1000 etherpad \
   && useradd -u 1000 -d /var/lib/etherpad -g etherpad -s /bin/bash -m etherpad
 
-RUN KIMAI_VERSION="${ETHERPAD_VERSION##v}" && \
+RUN ETHERPAD_VERSION="${ETHERPAD_VERSION##v}" && \
     echo "Installing Etherpad version '${ETHERPAD_VERSION}' ..." && \
     curl -SsL "https://github.com/ether/etherpad-lite/archive/${ETHERPAD_VERSION}.tar.gz" | \
         tar xz -C /srv/www --strip-components=1 && \
