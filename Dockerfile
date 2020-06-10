@@ -27,9 +27,9 @@ RUN ETHERPAD_VERSION="${ETHERPAD_VERSION##v}" && \
     echo "Installing Etherpad version '${ETHERPAD_VERSION}' ..." && \
     curl -SsL "https://github.com/ether/etherpad-lite/archive/${ETHERPAD_VERSION}.tar.gz" | \
         tar xz -C /srv/www --strip-components=1 && \
-  && cd /srv/www/src \
-  && npm install sqlite3 --save --loglevel warn \
-  && npm install --loglevel warn \
-  && chown -R etherpad:etherpad /srv/www
+    cd /srv/www/src && \
+    npm install sqlite3 --save --loglevel warn && \
+    npm install --loglevel warn && \
+    chown -R etherpad:etherpad /srv/www
 
 ADD overlay /
