@@ -79,22 +79,6 @@ ETHERPAD_GITHUB_USERS
 * [webhippie/alpine](https://github.com/dockhippie/alpine#available-environment-variables)
 
 
-## Contributing
-
-Fork -> Patch -> Push -> Pull Request
-
-
-## Authors
-
-* [ownCloud DevOps](https://github.com/orgs/owncloud-ops/people)
-
-
 ## License
 
 This project is licensed under the Apache 2.0 License - see the LICENSE file for details.
-
-## Copyright
-
-```
-Copyright (c) 2015-2017 ownCloud
-```
