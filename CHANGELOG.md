@@ -1,1 +1,2 @@
- * initial release
+- ENHANCEMENT
+  - add build arg `ETHERPAD_PLUGINS` and pre install `ep_padlist2,ep_adminpads2,ep_push2delete`
