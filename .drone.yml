@@ -35,6 +35,7 @@ steps:
   settings:
     build_args:
     - BUILD_VERSION=${DRONE_TAG%-*}
+    - ETHERPAD_PLUGINS="ep_padlist2 ep_adminpads2 ep_push2delete"
     dockerfile: Dockerfile
     password:
       from_secret: docker_password

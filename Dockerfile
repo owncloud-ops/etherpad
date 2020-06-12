@@ -6,6 +6,7 @@ LABEL maintainer="ownCloud GmbH <devops@owncloud.com>" \
     org.label-schema.schema-version="1.0"
 
 ARG BUILD_VERSION=1.8.4
+ARG ETHERPAD_PLUGINS
 ENV ETHERPAD_VERSION="${BUILD_VERSION:-1.8.4}"
 ENV NODE_ENV=production
 ENV NPM_CONFIG_LOGLEVEL=error
@@ -34,12 +35,12 @@ RUN apk --update add --virtual .build-deps curl tar && \
     ln -s ../src ep_etherpad-lite && \
     cd /opt/app/src/ && \
     npm ci --only=production && \
+    cd /opt/app/ && \
+    for PLUGIN in ${ETHERPAD_PLUGINS}; do npm i "${PLUGIN}" || exit 1; done && \
     chown -R app:app /opt/app && \
     apk del .build-deps && \
     rm -rf /var/cache/apk/* && \
     rm -rf /tmp/*
-
-VOLUME ["/opt/app/node_modules"]
 
 EXPOSE 9001
 
