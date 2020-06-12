@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+set -eo pipefail
+
+/usr/local/bin/gomplate -V -o /opt/app/settings.json -f /etc/templates/settings.tmpl
+
+printf "\nStarting Etherpad ...\n"
+exec node node_modules/ep_etherpad-lite/node/server.js

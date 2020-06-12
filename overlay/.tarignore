@@ -1,0 +1,11 @@
+.git*
+.docker*
+.travis*
+.code*
+*.md
+Dockerfile*
+tests
+Makefile
+doc
+settings.json*
+start.bat
