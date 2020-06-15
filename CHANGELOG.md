@@ -1,3 +1,2 @@
-- ENHANCEMENT
-  - remove plugin `push2delete` (outdated)
-  - switch to `pad-lister` plugin
+- BUGFIX
+  - fix wrong default for `require_authorization`
