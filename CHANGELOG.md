@@ -1,4 +1,3 @@
 - ENHANCEMENT
-  - integrate wait-for service
   - remove plugin `push2delete` (outdated)
   - switch to `pad-lister` plugin
