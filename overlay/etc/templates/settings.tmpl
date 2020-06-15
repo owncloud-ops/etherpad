@@ -58,7 +58,7 @@
   "maxAge": {{ getenv "MAX_AGE" "21600" | conv.ToInt }},
   "allowUnknownFileEnds": {{ getenv "ETHERPAD_ALLOW_UNKNOWN_FILE_ENDS" "true" | conv.Bool }},
   "requireAuthentication": {{ getenv "ETHERPAD_REQUIRE_AUTHENTICATION" "true" | conv.Bool }},
-  "requireAuthorization": {{ getenv "ETHERPAD_REQUIRE_AUTHORIZATION" "true" | conv.Bool }},
+  "requireAuthorization": {{ getenv "ETHERPAD_REQUIRE_AUTHORIZATION" "false" | conv.Bool }},
   "trustProxy": {{ getenv "ETHERPAD_TRUST_PROXY" "false" | conv.Bool }},
   "disableIPlogging": {{ getenv "ETHERPAD_DISABLE_IP_LOGGING" "false" | conv.Bool }},
 
