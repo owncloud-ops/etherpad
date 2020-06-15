@@ -4,6 +4,8 @@
 
 Docker image for [Etherpad](http://etherpad.org/).
 
+> __WARNING__: Releases > v1.8.0 are currently broken (basic auth partially not working).
+
 ## Ports
 
 - 9001
