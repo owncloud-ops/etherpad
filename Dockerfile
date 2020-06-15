@@ -21,7 +21,9 @@ RUN addgroup -g 1001 -S app && \
 
 RUN apk --update add --virtual .build-deps curl tar && \
     curl -SsL -o /usr/local/bin/gomplate https://github.com/hairyhenderson/gomplate/releases/download/v3.5.0/gomplate_linux-amd64-slim && \
+    curl -SsL -o /usr/local/bin/wait-for https://raw.githubusercontent.com/xoxys/wait-for/master/wait-for && \
     chmod 755 /usr/local/bin/gomplate && \
+    chmod 755 /usr/local/bin/wait-for && \
     mkdir -p /opt/app/node_modules && \
     # workaround to get rid of some startup warnings
     mkdir -p /opt/app/.git && \
@@ -30,7 +32,7 @@ RUN apk --update add --virtual .build-deps curl tar && \
     ETHERPAD_VERSION="${ETHERPAD_VERSION##v}" && \
     echo "Installing Etherpad version '${ETHERPAD_VERSION}' ..." && \
     curl -SsL "https://github.com/ether/etherpad-lite/archive/${ETHERPAD_VERSION}.tar.gz" | \
-        tar xz -C /opt/app -X /.tarignore --strip-components=1 && \
+    tar xz -C /opt/app -X /.tarignore --strip-components=1 && \
     cd /opt/app/node_modules && \
     ln -s ../src ep_etherpad-lite && \
     cd /opt/app/src/ && \
