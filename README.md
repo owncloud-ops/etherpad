@@ -1,8 +1,10 @@
 # Etherpad
 
 [![Build Status](https://drone.owncloud.com/api/badges/owncloud-ops/etherpad/status.svg)](https://drone.owncloud.com/owncloud-ops/etherpad)
+[![Docker Hub](https://img.shields.io/badge/docker-latest-blue.svg?logo=docker&logoColor=white)](https://hub.docker.com/r/owncloudops/etherpad)
 
-Docker image for [Etherpad](http://etherpad.org/).
+
+Custom Docker image for [Etherpad](https://etherpad.orgs/).
 
 > __WARNING__: Releases > v1.8.0 are currently broken (basic auth partially not working).
 
