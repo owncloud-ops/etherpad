@@ -1,18 +1,13 @@
-# Etherpad
+# etherpad
 
 [![Build Status](https://drone.owncloud.com/api/badges/owncloud-ops/etherpad/status.svg)](https://drone.owncloud.com/owncloud-ops/etherpad)
 [![Docker Hub](https://img.shields.io/badge/docker-latest-blue.svg?logo=docker&logoColor=white)](https://hub.docker.com/r/owncloudops/etherpad)
-
 
 Custom Docker image for [Etherpad](https://etherpad.orgs/).
 
 > __WARNING__: Releases > v1.8.0 are currently broken (basic auth partially not working).
 
-## Ports
-
-- 9001
-
-## Available environment variables
+## Environment Variables
 
 ```Shell
 ETHERPAD_TITLE="Etherpad"
@@ -62,6 +57,10 @@ ETHERPAD_ADMIN_PASSWORD=
 ETHERPAD_USER_NAME="user"
 ETHERPAD_USER_PASSWORD=
 ```
+
+## Ports
+
+- 9001
 
 ## Build
 
