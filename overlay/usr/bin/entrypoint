@@ -8,10 +8,10 @@ if [ "$ETHERPAD_DB_TYPE" == "mysql" ]
 then
     if [ -n "$ETHERPAD_DB_HOST" ]
     then
-        printf "Wait for database server on '%s:%s' ...\n" "$ETHERPAD_DB_HOST" "${ETHERPAD_DB_PORT:-3306}"
+        log_info "Wait for database server on '%s:%s' ..." "$ETHERPAD_DB_HOST" "${ETHERPAD_DB_PORT:-3306}"
         /usr/local/bin/wait-for "${ETHERPAD_DB_HOST}":"${ETHERPAD_DB_PORT:-3306}"
     fi
 fi
 
-printf "\nStarting Etherpad ...\n"
+log_info "Start Etherpad ..."
 exec node node_modules/ep_etherpad-lite/node/server.js
