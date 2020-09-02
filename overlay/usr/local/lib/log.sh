@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # Log the given message at the given level. All logs are written to stderr with a timestamp.
 function log {
