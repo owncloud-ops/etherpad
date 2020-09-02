@@ -2,16 +2,20 @@
 
 set -eo pipefail
 
+source /usr/local/lib/log.sh
+
 /usr/local/bin/gomplate -V -o /opt/app/settings.json -f /etc/templates/settings.tmpl
 
 if [ "$ETHERPAD_DB_TYPE" == "mysql" ]
 then
     if [ -n "$ETHERPAD_DB_HOST" ]
     then
-        printf "Wait for database server on '%s:%s' ...\n" "$ETHERPAD_DB_HOST" "${ETHERPAD_DB_PORT:-3306}"
+        log_info "Wait for database server on '%s:%s'" "$ETHERPAD_DB_HOST" "${ETHERPAD_DB_PORT:-3306}"
         /usr/local/bin/wait-for "${ETHERPAD_DB_HOST}":"${ETHERPAD_DB_PORT:-3306}"
     fi
+else
+  log_warn "Using nodes internal dirtydb for development purposes"
 fi
 
-printf "\nStarting Etherpad ...\n"
+log_info "Start Etherpad\n\n"
 exec node node_modules/ep_etherpad-lite/node/server.js
