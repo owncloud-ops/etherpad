@@ -21,7 +21,7 @@ RUN addgroup -g 1001 -S app && \
 
 RUN apk --update add --virtual .build-deps curl tar && \
     curl -SsL -o /usr/local/bin/gomplate https://github.com/hairyhenderson/gomplate/releases/download/v3.5.0/gomplate_linux-amd64-slim && \
-    curl -SsL -o /usr/local/bin/wait-for https://raw.githubusercontent.com/xoxys/wait-for/master/wait-for && \
+    curl -SsL -o /usr/local/bin/wait-for https://raw.githubusercontent.com/thegeeklab/wait-for/master/wait-for && \
     chmod 755 /usr/local/bin/gomplate && \
     chmod 755 /usr/local/bin/wait-for && \
     mkdir -p /opt/app/node_modules && \
