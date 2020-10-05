@@ -1,4 +1,0 @@
-- BUGFIX
-  - fix logging
-- ENHANCEMENT
-  - update gomplate to v3.7.0
