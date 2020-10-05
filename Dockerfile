@@ -20,7 +20,7 @@ RUN addgroup -g 1001 -S app && \
     adduser -S -D -H -u 1001 -h /opt/app -s /sbin/nologin -G app -g app app
 
 RUN apk --update add --virtual .build-deps curl tar && \
-    curl -SsL -o /usr/local/bin/gomplate https://github.com/hairyhenderson/gomplate/releases/download/v3.5.0/gomplate_linux-amd64-slim && \
+    curl -SsL -o /usr/local/bin/gomplate https://github.com/hairyhenderson/gomplate/releases/download/v3.7.0/gomplate_linux-amd64-slim && \
     curl -SsL -o /usr/local/bin/wait-for https://raw.githubusercontent.com/thegeeklab/wait-for/master/wait-for && \
     chmod 755 /usr/local/bin/gomplate && \
     chmod 755 /usr/local/bin/wait-for && \
