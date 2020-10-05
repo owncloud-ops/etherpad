@@ -1,2 +1,2 @@
-- BUGFIX
-  - fix wrong default for `require_authorization`
+- ENHANCEMENT
+  - update upstream version
