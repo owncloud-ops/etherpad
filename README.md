@@ -5,8 +5,6 @@
 
 Custom Docker image for [Etherpad](https://etherpad.orgs/).
 
-> __WARNING__: Releases > v1.8.0 are currently broken (basic auth partially not working).
-
 ## Environment Variables
 
 ```Shell
@@ -56,6 +54,22 @@ ETHERPAD_ADMIN_NAME="admin"
 ETHERPAD_ADMIN_PASSWORD=
 ETHERPAD_USER_NAME="user"
 ETHERPAD_USER_PASSWORD=
+ETHERPAD_USER_READONLY="false"
+ETHERPAD_USER_CANCREATE="true"
+
+ETHERPAD_LDAP_AUTH_ENABLED="false"
+ETHERPAD_LDAP_HOST=
+ETHERPAD_LDAP_BASEDN=
+ETHERPAD_LDAP_USER_FILTER="(&(objectClass=inetOrgPerson)(uid={{username}}))"
+ETHERPAD_LDAP_USER_NAME_ATTR="displayName"
+ETHERPAD_LDAP_BINDDN=
+ETHERPAD_LDAP_BIND_PASSWORD=
+ETHERPAD_LDAP_GROUP_SEARCH_BASE=
+ETHERPAD_LDAP_GROUP_ATTR="member"
+ETHERPAD_LDAP_GROUP_SEARCH="(&(cn=admin)(objectClass=groupOfNames))"
+
+# Uninstall bundled plugins
+ETHERPAD_PLUGINS_REMOVE=
 ```
 
 ## Ports
