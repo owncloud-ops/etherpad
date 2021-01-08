@@ -7,6 +7,7 @@ LABEL maintainer="ownCloud GmbH <devops@owncloud.com>" \
 
 ARG BUILD_VERSION=1.8.4
 ARG ETHERPAD_PLUGINS
+ARG ETHERPAD_PLUGINS_EXTRA
 ENV ETHERPAD_VERSION="${BUILD_VERSION:-1.8.4}"
 ENV NODE_ENV=production
 ENV NPM_CONFIG_LOGLEVEL=error
@@ -19,7 +20,7 @@ RUN apk --update --no-cache add libreoffice tidyhtml
 RUN addgroup -g 1001 -S app && \
     adduser -S -D -H -u 1001 -h /opt/app -s /sbin/nologin -G app -g app app
 
-RUN apk --update add --virtual .build-deps curl tar && \
+RUN apk --update add --virtual .build-deps curl tar git make && \
     curl -SsL -o /usr/local/bin/gomplate https://github.com/hairyhenderson/gomplate/releases/download/v3.7.0/gomplate_linux-amd64-slim && \
     curl -SsL -o /usr/local/bin/wait-for https://raw.githubusercontent.com/thegeeklab/wait-for/master/wait-for && \
     chmod 755 /usr/local/bin/gomplate && \

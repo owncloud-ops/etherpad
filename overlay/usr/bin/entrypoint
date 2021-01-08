@@ -15,5 +15,13 @@ else
   log_warn "Using nodes internal dirtydb for development purposes"
 fi
 
+if [ -n "$ETHERPAD_PLUGINS_REMOVE" ]; then
+  log_info "Uninstall bundled plugins:"
+  for PLUGIN in ${ETHERPAD_PLUGINS_REMOVE}; do
+    log_info "Plugin '${PLUGIN}' removed"
+    npm uninstall --silent > /dev/null --no-progress "${PLUGIN}"
+  done
+fi
+
 log_info "Start Etherpad\n"
 exec node node_modules/ep_etherpad-lite/node/server.js

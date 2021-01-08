@@ -63,13 +63,32 @@
   "disableIPlogging": {{ getenv "ETHERPAD_DISABLE_IP_LOGGING" "false" | conv.Bool }},
 
   "users": {
+    {{ if (getenv "ETHERPAD_LDAP_AUTH_ENABLED" "false" | conv.Bool) }}
+    "ldapauth": {
+      "password": "dummy_password",
+      "url": "{{ getenv "ETHERPAD_LDAP_HOST" }}",
+      "accountBase": "{{ getenv "ETHERPAD_LDAP_BASEDN" }}",
+      "accountPattern": "{{ getenv "ETHERPAD_LDAP_USER_FILTER" "(&(objectClass=inetOrgPerson)(uid={{username}}))" }}",
+      "displayNameAttribute": "{{ getenv "ETHERPAD_LDAP_USER_NAME_ATTR" "displayName" }}",
+      "searchDN": "{{ getenv "ETHERPAD_LDAP_BINDDN" }}",
+      "searchPWD": "{{ getenv "ETHERPAD_LDAP_BIND_PASSWORD" }}",
+      "groupSearchBase": "{{ getenv "ETHERPAD_LDAP_GROUP_SEARCH_BASE" }}",
+      "groupAttribute": "{{ getenv "ETHERPAD_LDAP_GROUP_ATTR" "member" }}",
+      "groupAttributeIsDN": true,
+      "searchScope": "sub",
+      "groupSearch": "{{ getenv "ETHERPAD_LDAP_GROUP_SEARCH" "(&(cn=admin)(objectClass=groupOfNames))" }}",
+      "anonymousReadonly": false
+    },
+    {{ end }}
     "{{ getenv "ETHERPAD_ADMIN_NAME" "admin" }}": {
       "password": "{{ getenv "ETHERPAD_ADMIN_PASSWORD" "changeme" }}",
       "is_admin": true
     },
     "{{ getenv "ETHERPAD_USER_NAME" "user" }}": {
       "password": "{{ getenv "ETHERPAD_USER_PASSWORD" "changeme" }}",
-      "is_admin": false
+      "is_admin": false,
+      "readOnly": {{ getenv "ETHERPAD_USER_READONLY" "false" | conv.Bool }},
+      "canCreate": {{ getenv "ETHERPAD_USER_CANCREATE" "true" | conv.Bool }}
     }
   },
 

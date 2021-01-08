@@ -35,7 +35,7 @@ steps:
   settings:
     build_args:
     - BUILD_VERSION=${DRONE_TAG%-*}
-    - ETHERPAD_PLUGINS=ep_pad-lister ep_adminpads2
+    - ETHERPAD_PLUGINS=ep_pad-lister ep_adminpads2 github:tykeal/ep_ldapauth#14addc8
     dockerfile: Dockerfile
     password:
       from_secret: docker_password
