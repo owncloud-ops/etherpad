@@ -5,9 +5,9 @@ LABEL maintainer="ownCloud GmbH <devops@owncloud.com>" \
     org.label-schema.vendor="ownCloud GmbH" \
     org.label-schema.schema-version="1.0"
 
-ARG BUILD_VERSION=1.8.4
+ARG BUILD_VERSION
 ARG ETHERPAD_PLUGINS
-ENV ETHERPAD_VERSION="${BUILD_VERSION:-1.8.4}"
+ENV ETHERPAD_VERSION="${BUILD_VERSION:-1.8.7}"
 ENV NODE_ENV=production
 ENV NPM_CONFIG_LOGLEVEL=error
 
