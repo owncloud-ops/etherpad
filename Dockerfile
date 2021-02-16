@@ -1,4 +1,4 @@
-FROM node:10-alpine
+FROM node:10-alpine@sha256:dae0a441e1b5201e074312e44b35571bed4a39b5bc07c26c1bfab9f18017ff54
 
 LABEL maintainer="ownCloud GmbH <devops@owncloud.com>" \
     org.label-schema.name="Etherpad" \
