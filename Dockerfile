@@ -1,9 +1,11 @@
 FROM node:10-alpine@sha256:dae0a441e1b5201e074312e44b35571bed4a39b5bc07c26c1bfab9f18017ff54
 
-LABEL maintainer="ownCloud GmbH <devops@owncloud.com>" \
-    org.label-schema.name="Etherpad" \
-    org.label-schema.vendor="ownCloud GmbH" \
-    org.label-schema.schema-version="1.0"
+LABEL maintainer="ownCloud DevOps <devops@owncloud.com>"
+LABEL org.opencontainers.image.authors="ownCloud DevOps <devops@owncloud.com>"
+LABEL org.opencontainers.image.title="Etherpad Lite"
+LABEL org.opencontainers.image.url="https://github.com/owncloud-ops/etherpad"
+LABEL org.opencontainers.image.source="https://github.com/owncloud-ops/etherpad"
+LABEL org.opencontainers.image.documentation="https://github.com/owncloud-ops/etherpad"
 
 ARG BUILD_VERSION
 ARG ETHERPAD_PLUGINS
