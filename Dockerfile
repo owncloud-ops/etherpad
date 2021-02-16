@@ -5,9 +5,18 @@ LABEL maintainer="ownCloud GmbH <devops@owncloud.com>" \
     org.label-schema.vendor="ownCloud GmbH" \
     org.label-schema.schema-version="1.0"
 
-ARG BUILD_VERSION=1.8.4
+ARG BUILD_VERSION
 ARG ETHERPAD_PLUGINS
+ARG GOMPLATE_VERSION
+ARG WAIT_FOR_VERSION
+
+# renovate: datasource=github-releases depName=ether/etherpad-lite
 ENV ETHERPAD_VERSION="${BUILD_VERSION:-1.8.4}"
+# renovate: datasource=github-releases depName=hairyhenderson/gomplate
+ENV GOMPLATE_VERSION="${GOMPLATE_VERSION:-v3.8.0}"
+# renovate: datasource=github-releases depName=thegeeklab/wait-for
+ENV WAIT_FOR_VERSION="${WAIT_FOR_VERSION:-v0.1.0}"
+
 ENV NODE_ENV=production
 ENV NPM_CONFIG_LOGLEVEL=error
 
@@ -20,8 +29,8 @@ RUN addgroup -g 1001 -S app && \
     adduser -S -D -H -u 1001 -h /opt/app -s /sbin/nologin -G app -g app app
 
 RUN apk --update add --virtual .build-deps curl tar git make && \
-    curl -SsL -o /usr/local/bin/gomplate https://github.com/hairyhenderson/gomplate/releases/download/v3.7.0/gomplate_linux-amd64-slim && \
-    curl -SsL -o /usr/local/bin/wait-for https://raw.githubusercontent.com/thegeeklab/wait-for/master/wait-for && \
+    curl -SsL -o /usr/local/bin/gomplate "https://github.com/hairyhenderson/gomplate/releases/download/${GOMPLATE_VERSION}/gomplate_linux-amd64-slim" && \
+    curl -SsL -o /usr/local/bin/wait-for "https://github.com/thegeeklab/wait-for/releases/download/${WAIT_FOR_VERSION}/wait-for" && \
     chmod 755 /usr/local/bin/gomplate && \
     chmod 755 /usr/local/bin/wait-for && \
     mkdir -p /opt/app/node_modules && \
