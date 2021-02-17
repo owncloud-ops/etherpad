@@ -24,4 +24,4 @@ if [ -n "$ETHERPAD_PLUGINS_REMOVE" ]; then
 fi
 
 log_info "Start Etherpad\n"
-exec node node_modules/ep_etherpad-lite/node/server.js
+exec node src/node/server.js

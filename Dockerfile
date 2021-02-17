@@ -13,7 +13,7 @@ ARG GOMPLATE_VERSION
 ARG WAIT_FOR_VERSION
 
 # renovate: datasource=github-releases depName=ether/etherpad-lite
-ENV ETHERPAD_VERSION="${BUILD_VERSION:-1.8.6}"
+ENV ETHERPAD_VERSION="${BUILD_VERSION:-1.8.8}"
 # renovate: datasource=github-releases depName=hairyhenderson/gomplate
 ENV GOMPLATE_VERSION="${GOMPLATE_VERSION:-v3.9.0}"
 # renovate: datasource=github-releases depName=thegeeklab/wait-for
@@ -43,11 +43,11 @@ RUN apk --update add --virtual .build-deps curl tar git make && \
     ETHERPAD_VERSION="${ETHERPAD_VERSION##v}" && \
     echo "Installing Etherpad version '${ETHERPAD_VERSION}' ..." && \
     curl -SsL "https://github.com/ether/etherpad-lite/archive/${ETHERPAD_VERSION}.tar.gz" | \
-    tar xz -C /opt/app -X /.tarignore --strip-components=1 && \
+        tar xz -C /opt/app -X /.tarignore --strip-components=1 && \
     cd /opt/app/node_modules && \
     ln -s ../src ep_etherpad-lite && \
     cd /opt/app/src/ && \
-    npm ci --only=production && \
+    npm ci --no-optional && \
     cd /opt/app/ && \
     for PLUGIN in ${ETHERPAD_PLUGINS}; do npm i "${PLUGIN}" || exit 1; done && \
     chown -R app:app /opt/app && \
