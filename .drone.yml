@@ -19,7 +19,7 @@ steps:
   image: plugins/docker
   settings:
     build_args:
-    - ETHERPAD_PLUGINS=ep_pad-lister ep_adminpads2 github:tykeal/ep_ldapauth#14addc8
+    - ETHERPAD_PLUGINS=ep_padlist2 ep_adminpads2 ep_ldapauth@0.4.0
     dockerfile: Dockerfile
     dry_run: true
     repo: owncloudops/${DRONE_REPO_NAME}
@@ -38,7 +38,7 @@ steps:
   image: plugins/docker
   settings:
     build_args:
-    - ETHERPAD_PLUGINS=ep_pad-lister ep_adminpads2 github:tykeal/ep_ldapauth#14addc8
+    - ETHERPAD_PLUGINS=ep_padlist2 ep_adminpads2 ep_ldapauth@0.4.0
     dockerfile: Dockerfile
     password:
       from_secret: docker_password
