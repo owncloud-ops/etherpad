@@ -28,7 +28,7 @@
     "database": "{{ getenv "ETHERPAD_DB_DATABASE" "etherpad" }}",
     "charset": "{{ getenv "ETHERPAD_DB_CHARSET" "utf8mb4" }}",
     {{ else }}
-      "filename": "{{ getenv "ETHERPAD_DB_FILENAME" "var/dirty.db" }}"
+    "filename": "{{ getenv "ETHERPAD_DB_FILENAME" "var/dirty.db" }}"
     {{ end }}
   },
 {{ if (getenv "ETHERPAD_DEFAULT_PAD_TEXT") }}
@@ -53,7 +53,6 @@
   "suppressErrorsInPadText": {{ getenv "ETHERPAD_SUPPRESS_ERRORS_IN_PAD_TEXT" "false" | conv.Bool }},
   "requireSession": {{ getenv "ETHERPAD_REQUIRE_SESSION" "false" | conv.Bool }},
   "editOnly": {{ getenv "ETHERPAD_EDIT_ONLY" "false" | conv.Bool }},
-  "sessionNoPassword": {{ getenv "ETHERPAD_SESSION_NO_PASSWORD" "false" | conv.Bool }},
   "minify": {{ getenv "ETHERPAD_MINIFY" "true" | conv.Bool }},
   "maxAge": {{ getenv "MAX_AGE" "21600" | conv.ToInt }},
   "allowUnknownFileEnds": {{ getenv "ETHERPAD_ALLOW_UNKNOWN_FILE_ENDS" "true" | conv.Bool }},
@@ -92,8 +91,8 @@
     }
   },
 
-  "loadTest": "{{ getenv "ETHERPAD_LOAD_TEST" "false" | conv.Bool }}",
-  "indentationOnNewLine": "{{ getenv "ETHERPAD_INDENTATION_ON_NEW_LINE" "false" | conv.Bool }}",
+  "loadTest": false,
+  "indentationOnNewLine": {{ getenv "ETHERPAD_INDENTATION_ON_NEW_LINE" "false" | conv.Bool }},
   "loglevel": "{{ getenv "ETHERPAD_LOG_LEVEL" "INFO" }}",
 
   "logconfig": {
