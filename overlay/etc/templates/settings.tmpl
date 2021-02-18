@@ -10,32 +10,32 @@
   "skinName": "{{ getenv "ETHERPAD_SKIN_NAME" "colibris" }}",
 
   "showSettingsInAdminPage": {{ getenv "ETHERPAD_SHOW_SETTING_IN_ADMIN" "true" | conv.Bool }},
-  {{ if (getenv "ETHERPAD_SSL_ENABLED" "false" | conv.Bool) }}
+  {{- if (getenv "ETHERPAD_SSL_ENABLED" "false" | conv.Bool) }}
 
-    "ssl": {
-      "key": "{{ getenv "ETHERPAD_SSL_KEY" }}",
-      "cert": "{{ getenv "ETHERPAD_SSL_CERT" }}",
-      "ca": [{{ if ne (getenv "ETHERPAD_SSL_CA") "" }}"{{ getenv "ETHERPAD_SSL_CA" }}"{{ end }}]
-    },
+  "ssl": {
+    "key": "{{ getenv "ETHERPAD_SSL_KEY" }}",
+    "cert": "{{ getenv "ETHERPAD_SSL_CERT" }}",
+    "ca": [{{ if ne (getenv "ETHERPAD_SSL_CA") "" }}"{{ getenv "ETHERPAD_SSL_CA" }}"{{ end }}]
+  },
+  {{- end }}
 
-  {{ end }}
   "dbType": "{{ getenv "ETHERPAD_DB_TYPE" "dirty" }}",
   "dbSettings" : {
-    {{ if (getenv "ETHERPAD_DB_HOST") }}
+    {{- if (getenv "ETHERPAD_DB_HOST") }}
     "user": "{{ getenv "ETHERPAD_DB_USERNAME" }}",
     "password": "{{ getenv "ETHERPAD_DB_PASSWORD" }}",
     "host": "{{ getenv "ETHERPAD_DB_HOST" }}",
     "database": "{{ getenv "ETHERPAD_DB_DATABASE" "etherpad" }}",
     "charset": "{{ getenv "ETHERPAD_DB_CHARSET" "utf8mb4" }}",
-    {{ else }}
+    {{- else }}
     "filename": "{{ getenv "ETHERPAD_DB_FILENAME" "var/dirty.db" }}"
-    {{ end }}
+    {{- end }}
   },
-{{ if (getenv "ETHERPAD_DEFAULT_PAD_TEXT") }}
+  {{- if (getenv "ETHERPAD_DEFAULT_PAD_TEXT") }}
 
   "defaultPadText": "{{ getenv "ETHERPAD_DEFAULT_PAD_TEXT" }}",
+  {{- end }}
 
-{{ end }}
   "padOptions": {
     "noColors": {{ getenv "ETHERPAD_PAD_OPTIONS_NO_COLORS" "false" | conv.Bool }},
     "showControls": {{ getenv "ETHERPAD_PAD_OPTIONS_SHOW_CONTROLS" "true" | conv.Bool }},
@@ -62,7 +62,7 @@
   "disableIPlogging": {{ getenv "ETHERPAD_DISABLE_IP_LOGGING" "false" | conv.Bool }},
 
   "users": {
-    {{ if (getenv "ETHERPAD_LDAP_AUTH_ENABLED" "false" | conv.Bool) }}
+    {{- if (getenv "ETHERPAD_LDAP_AUTH_ENABLED" "false" | conv.Bool) }}
     "ldapauth": {
       "password": "dummy_password",
       "url": "{{ getenv "ETHERPAD_LDAP_HOST" }}",
@@ -78,7 +78,7 @@
       "groupSearch": "{{ getenv "ETHERPAD_LDAP_GROUP_SEARCH" "(&(cn=admin)(objectClass=groupOfNames))" }}",
       "anonymousReadonly": false
     },
-    {{ end }}
+    {{- end }}
     "{{ getenv "ETHERPAD_ADMIN_NAME" "admin" }}": {
       "password": "{{ getenv "ETHERPAD_ADMIN_PASSWORD" "changeme" }}",
       "is_admin": true
