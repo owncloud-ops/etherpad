@@ -17,7 +17,7 @@ ENV ETHERPAD_VERSION="${BUILD_VERSION:-1.8.13}"
 # renovate: datasource=github-releases depName=hairyhenderson/gomplate
 ENV GOMPLATE_VERSION="${GOMPLATE_VERSION:-v3.9.0}"
 # renovate: datasource=github-releases depName=thegeeklab/wait-for
-ENV WAIT_FOR_VERSION="${WAIT_FOR_VERSION:-v0.1.1}"
+ENV WAIT_FOR_VERSION="${WAIT_FOR_VERSION:-v0.1.2}"
 
 ENV NODE_ENV=production
 ENV NPM_CONFIG_LOGLEVEL=error
