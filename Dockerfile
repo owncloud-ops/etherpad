@@ -1,4 +1,4 @@
-FROM node:14-alpine@sha256:ed51af876dd7932ce5c1e3b16c2e83a3f58419d824e366de1f7b00f40c848c40
+FROM node:14-alpine@sha256:5924104adea8e28ae84774904c6b85a8173e452423e67a270e1a664d6379abb6
 
 LABEL maintainer="ownCloud DevOps <devops@owncloud.com>"
 LABEL org.opencontainers.image.authors="ownCloud DevOps <devops@owncloud.com>"
