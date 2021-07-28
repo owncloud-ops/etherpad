@@ -5,6 +5,16 @@
 
 Custom Docker image for [Etherpad](https://etherpad.org/).
 
+## Ports
+
+- 9001
+
+## Bundled Plugins
+
+- ep_padlist2
+- ep_adminpads2
+- ep_ldapauth
+
 ## Environment Variables
 
 ```Shell
@@ -69,10 +79,6 @@ ETHERPAD_LDAP_GROUP_SEARCH="(&(cn=admin)(objectClass=groupOfNames))"
 # Uninstall bundled plugins
 ETHERPAD_PLUGINS_REMOVE=
 ```
-
-## Ports
-
-- 9001
 
 ## Build
 
