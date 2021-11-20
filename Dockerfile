@@ -13,7 +13,7 @@ ARG GOMPLATE_VERSION
 ARG WAIT_FOR_VERSION
 
 # renovate: datasource=github-releases depName=ether/etherpad-lite
-ENV ETHERPAD_VERSION="${BUILD_VERSION:-1.8.14}"
+ENV ETHERPAD_VERSION="${BUILD_VERSION:-1.8.15}"
 # renovate: datasource=github-releases depName=hairyhenderson/gomplate
 ENV GOMPLATE_VERSION="${GOMPLATE_VERSION:-v3.10.0}"
 # renovate: datasource=github-releases depName=thegeeklab/wait-for
