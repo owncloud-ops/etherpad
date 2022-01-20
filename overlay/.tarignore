@@ -3,6 +3,7 @@
 .travis*
 .code*
 *.md
+.lgtm*
 Dockerfile*
 tests
 Makefile
