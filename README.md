@@ -76,7 +76,6 @@ ETHERPAD_LDAP_GROUP_SEARCH_BASE=
 ETHERPAD_LDAP_GROUP_ATTR="member"
 ETHERPAD_LDAP_GROUP_SEARCH="(&(cn=admin)(objectClass=groupOfNames))"
 
-
 # Uninstall bundled plugins
 ETHERPAD_PLUGINS_REMOVE=
 ```
