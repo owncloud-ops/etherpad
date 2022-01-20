@@ -39,7 +39,7 @@ RUN apk --update add --virtual .build-deps curl tar git make && \
     # workaround to get rid of some startup warnings
     mkdir -p /opt/app/.git && \
     echo "xdocker" > /opt/app/.git/HEAD && \
-    touch /opt/app/.git/pseudo && \
+    touch /opt/app/.git/xdocker && \
     ETHERPAD_VERSION="${ETHERPAD_VERSION##v}" && \
     echo "Installing Etherpad 'v${ETHERPAD_VERSION}'" && \
     curl -SsL "https://github.com/ether/etherpad-lite/archive/${ETHERPAD_VERSION}.tar.gz" | \
