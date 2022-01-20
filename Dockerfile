@@ -20,7 +20,7 @@ ENV GOMPLATE_VERSION="${GOMPLATE_VERSION:-v3.10.0}"
 ENV WAIT_FOR_VERSION="${WAIT_FOR_VERSION:-v0.2.0}"
 
 ENV NODE_ENV=production
-ENV NPM_CONFIG_LOGLEVEL=error
+ENV NPM_CONFIG_LOGLEVEL=silent
 
 ADD overlay /
 WORKDIR /opt/app
@@ -38,20 +38,23 @@ RUN apk --update add --virtual .build-deps curl tar git make && \
     mkdir -p /opt/app/node_modules && \
     # workaround to get rid of some startup warnings
     mkdir -p /opt/app/.git && \
-    echo "xxxxxpseudo" > /opt/app/.git/HEAD && \
-    touch /opt/app/.git/pseudo && \
+    echo "xdocker" > /opt/app/.git/HEAD && \
+    touch /opt/app/.git/xdocker && \
     ETHERPAD_VERSION="${ETHERPAD_VERSION##v}" && \
-    echo "Installing Etherpad version '${ETHERPAD_VERSION}' ..." && \
+    echo "Installing Etherpad 'v${ETHERPAD_VERSION}'" && \
     curl -SsL "https://github.com/ether/etherpad-lite/archive/${ETHERPAD_VERSION}.tar.gz" | \
         tar xz -C /opt/app -X /.tarignore --strip-components=1 && \
+    cd /opt/app/ && \
+    npm i --no-save --legacy-peer-deps ${ETHERPAD_PLUGINS} || exit 1 && \
     cd /opt/app/node_modules && \
     ln -s ../src ep_etherpad-lite && \
     cd /opt/app/src/ && \
     npm ci --no-optional && \
-    cd /opt/app/ && \
-    for PLUGIN in ${ETHERPAD_PLUGINS}; do npm i "${PLUGIN}" || exit 1; done && \
+    npm link && \
     chown -R app:app /opt/app && \
     apk del .build-deps && \
+    rm -f /opt/app/var/minified* && \
+    rm -rf /root/.npm/ && \
     rm -rf /var/cache/apk/* && \
     rm -rf /tmp/*
 
