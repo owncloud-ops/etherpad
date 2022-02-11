@@ -1,9 +1,9 @@
 ---
 repository:
   name: etherpad
-  description: Docker image for Etherpad.
+  description: Custom container image for Etherpad
   homepage: https://hub.docker.com/r/owncloudops/etherpad
-  topics: docker, etherpad
+  topics: oci, container, etherpad
 
   private: false
   has_issues: true
