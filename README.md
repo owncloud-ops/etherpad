@@ -90,4 +90,4 @@ docker build --build-arg BUILD_VERSION=1.8.4 -f Dockerfile -t etherpad:latest .
 
 ## License
 
-This project is licensed under the Apache 2.0 License - see the [LICENSE](https://github.com/owncloud-ops/etherpad/blob/master/LICENSE) file for details.
+This project is licensed under the Apache 2.0 License - see the [LICENSE](https://github.com/owncloud-ops/etherpad/blob/main/LICENSE) file for details.
