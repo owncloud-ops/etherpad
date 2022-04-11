@@ -1,16 +1,18 @@
 #!/usr/bin/env sh
 
+# shellcheck disable=SC3040
 set -eo pipefail
 
+# shellcheck disable=SC3046,SC1091
 source /usr/local/lib/log.sh
 
 /usr/local/bin/gomplate -o /opt/app/settings.json -f /etc/templates/settings.tmpl
 
-if [ "$ETHERPAD_DB_TYPE" == "mysql" ]; then
-    if [ -n "$ETHERPAD_DB_HOST" ]; then
-        log_info "Wait for database server on '${ETHERPAD_DB_HOST}:${ETHERPAD_DB_PORT:-3306}'"
-        /usr/local/bin/wait-for "${ETHERPAD_DB_HOST}":"${ETHERPAD_DB_PORT:-3306}"
-    fi
+if [ "$ETHERPAD_DB_TYPE" = "mysql" ]; then
+  if [ -n "$ETHERPAD_DB_HOST" ]; then
+    log_info "Wait for database server on '${ETHERPAD_DB_HOST}:${ETHERPAD_DB_PORT:-3306}'"
+    /usr/local/bin/wait-for "${ETHERPAD_DB_HOST}":"${ETHERPAD_DB_PORT:-3306}"
+  fi
 else
   log_warn "Using nodes internal dirtydb for development purposes"
 fi
@@ -19,7 +21,7 @@ if [ -n "$ETHERPAD_PLUGINS_REMOVE" ]; then
   log_info "Uninstall bundled plugins:"
   for PLUGIN in ${ETHERPAD_PLUGINS_REMOVE}; do
     log_info "Plugin '${PLUGIN}' removed"
-    npm uninstall --silent > /dev/null --no-progress "${PLUGIN}"
+    npm uninstall --silent --no-progress "${PLUGIN}" >/dev/null
   done
 fi
 

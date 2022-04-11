@@ -11,6 +11,7 @@ ARG BUILD_VERSION
 ARG ETHERPAD_PLUGINS
 ARG GOMPLATE_VERSION
 ARG WAIT_FOR_VERSION
+ARG CONTAINER_LIBRARY_VERSION
 
 # renovate: datasource=github-releases depName=ether/etherpad-lite
 ENV ETHERPAD_VERSION="${BUILD_VERSION:-1.8.17}"
@@ -18,6 +19,8 @@ ENV ETHERPAD_VERSION="${BUILD_VERSION:-1.8.17}"
 ENV GOMPLATE_VERSION="${GOMPLATE_VERSION:-v3.10.0}"
 # renovate: datasource=github-releases depName=thegeeklab/wait-for
 ENV WAIT_FOR_VERSION="${WAIT_FOR_VERSION:-v0.2.0}"
+# renovate: datasource=github-releases depName=owncloud-ops/container-library
+ENV CONTAINER_LIBRARY_VERSION="${CONTAINER_LIBRARY_VERSION:-v0.1.0}"
 
 ENV NODE_ENV=production
 ENV NPM_CONFIG_LOGLEVEL=silent
@@ -33,6 +36,7 @@ RUN addgroup -g 1001 -S app && \
 RUN apk --update add --virtual .build-deps curl tar git make && \
     curl -SsL -o /usr/local/bin/gomplate "https://github.com/hairyhenderson/gomplate/releases/download/${GOMPLATE_VERSION}/gomplate_linux-amd64-slim" && \
     curl -SsL -o /usr/local/bin/wait-for "https://github.com/thegeeklab/wait-for/releases/download/${WAIT_FOR_VERSION}/wait-for" && \
+    curl -SsL "https://github.com/owncloud-ops/container-library/releases/download/${CONTAINER_LIBRARY_VERSION}/container-library.tar.gz" | tar xz -C / && \
     chmod 755 /usr/local/bin/gomplate && \
     chmod 755 /usr/local/bin/wait-for && \
     mkdir -p /opt/app/node_modules && \
