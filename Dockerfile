@@ -19,7 +19,7 @@ ENV ETHERPAD_VERSION="${BUILD_VERSION:-1.8.17}"
 ENV GOMPLATE_VERSION="${GOMPLATE_VERSION:-v3.10.0}"
 # renovate: datasource=github-releases depName=thegeeklab/wait-for
 ENV WAIT_FOR_VERSION="${WAIT_FOR_VERSION:-v0.2.0}"
-# renovate: datasource=github-releases depName=owncloud-op/container-library
+# renovate: datasource=github-releases depName=owncloud-ops/container-library
 ENV CONTAINER_LIBRARY_VERSION="${CONTAINER_LIBRARY_VERSION:-v0.1.0}"
 
 ENV NODE_ENV=production
