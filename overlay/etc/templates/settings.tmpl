@@ -9,8 +9,8 @@
   "favicon": "{{ getenv "ETHERPAD_FAVICON" "favicon.ico" }}",
   "skinName": "{{ getenv "ETHERPAD_SKIN_NAME" "colibris" }}",
 
-  "showSettingsInAdminPage": {{ getenv "ETHERPAD_SHOW_SETTING_IN_ADMIN" "true" | conv.Bool }},
-  {{- if (getenv "ETHERPAD_SSL_ENABLED" "false" | conv.Bool) }}
+  "showSettingsInAdminPage": {{ getenv "ETHERPAD_SHOW_SETTING_IN_ADMIN" "true" | conv.ToBool }},
+  {{- if (getenv "ETHERPAD_SSL_ENABLED" "false" | conv.ToBool) }}
 
   "ssl": {
     "key": "{{ getenv "ETHERPAD_SSL_KEY" }}",
@@ -37,32 +37,32 @@
   {{- end }}
 
   "padOptions": {
-    "noColors": {{ getenv "ETHERPAD_PAD_OPTIONS_NO_COLORS" "false" | conv.Bool }},
-    "showControls": {{ getenv "ETHERPAD_PAD_OPTIONS_SHOW_CONTROLS" "true" | conv.Bool }},
-    "showChat": {{ getenv "ETHERPAD_PAD_OPTIONS_SHOW_CHAT" "true" | conv.Bool }},
-    "showLineNumbers": {{ getenv "ETHERPAD_PAD_OPTIONS_SHOW_LINE_NUMBERS" "true" | conv.Bool }},
-    "useMonospaceFont": {{ getenv "ETHERPAD_PAD_OPTIONS_USE_MONOSPACE_FONT" "false" | conv.Bool }},
-    "userName": {{ getenv "ETHERPAD_PAD_OPTIONS_USERNAME" "false" | conv.Bool }},
-    "userColor": {{ getenv "ETHERPAD_PAD_OPTIONS_USERCOLOR" "false" | conv.Bool }},
-    "rtl": {{ getenv "ETHERPAD_PAD_OPTIONS_RTL" "false" | conv.Bool }},
-    "alwaysShowChat": {{ getenv "ETHERPAD_PAD_OPTIONS_ALWAYS_SHOW_CHAT" "false" | conv.Bool }},
-    "chatAndUsers": {{ getenv "ETHERPAD_PAD_OPTIONS_CHAT_AND_USERS" "false" | conv.Bool }},
+    "noColors": {{ getenv "ETHERPAD_PAD_OPTIONS_NO_COLORS" "false" | conv.ToBool }},
+    "showControls": {{ getenv "ETHERPAD_PAD_OPTIONS_SHOW_CONTROLS" "true" | conv.ToBool }},
+    "showChat": {{ getenv "ETHERPAD_PAD_OPTIONS_SHOW_CHAT" "true" | conv.ToBool }},
+    "showLineNumbers": {{ getenv "ETHERPAD_PAD_OPTIONS_SHOW_LINE_NUMBERS" "true" | conv.ToBool }},
+    "useMonospaceFont": {{ getenv "ETHERPAD_PAD_OPTIONS_USE_MONOSPACE_FONT" "false" | conv.ToBool }},
+    "userName": {{ getenv "ETHERPAD_PAD_OPTIONS_USERNAME" "false" | conv.ToBool }},
+    "userColor": {{ getenv "ETHERPAD_PAD_OPTIONS_USERCOLOR" "false" | conv.ToBool }},
+    "rtl": {{ getenv "ETHERPAD_PAD_OPTIONS_RTL" "false" | conv.ToBool }},
+    "alwaysShowChat": {{ getenv "ETHERPAD_PAD_OPTIONS_ALWAYS_SHOW_CHAT" "false" | conv.ToBool }},
+    "chatAndUsers": {{ getenv "ETHERPAD_PAD_OPTIONS_CHAT_AND_USERS" "false" | conv.ToBool }},
     "lang": "{{ getenv "ETHERPAD_PAD_OPTIONS_LANG" "en-us" }}"
   },
 
-  "suppressErrorsInPadText": {{ getenv "ETHERPAD_SUPPRESS_ERRORS_IN_PAD_TEXT" "false" | conv.Bool }},
-  "requireSession": {{ getenv "ETHERPAD_REQUIRE_SESSION" "false" | conv.Bool }},
-  "editOnly": {{ getenv "ETHERPAD_EDIT_ONLY" "false" | conv.Bool }},
-  "minify": {{ getenv "ETHERPAD_MINIFY" "true" | conv.Bool }},
+  "suppressErrorsInPadText": {{ getenv "ETHERPAD_SUPPRESS_ERRORS_IN_PAD_TEXT" "false" | conv.ToBool }},
+  "requireSession": {{ getenv "ETHERPAD_REQUIRE_SESSION" "false" | conv.ToBool }},
+  "editOnly": {{ getenv "ETHERPAD_EDIT_ONLY" "false" | conv.ToBool }},
+  "minify": {{ getenv "ETHERPAD_MINIFY" "true" | conv.ToBool }},
   "maxAge": {{ getenv "MAX_AGE" "21600" | conv.ToInt }},
-  "allowUnknownFileEnds": {{ getenv "ETHERPAD_ALLOW_UNKNOWN_FILE_ENDS" "true" | conv.Bool }},
-  "requireAuthentication": {{ getenv "ETHERPAD_REQUIRE_AUTHENTICATION" "true" | conv.Bool }},
-  "requireAuthorization": {{ getenv "ETHERPAD_REQUIRE_AUTHORIZATION" "false" | conv.Bool }},
-  "trustProxy": {{ getenv "ETHERPAD_TRUST_PROXY" "false" | conv.Bool }},
-  "disableIPlogging": {{ getenv "ETHERPAD_DISABLE_IP_LOGGING" "false" | conv.Bool }},
+  "allowUnknownFileEnds": {{ getenv "ETHERPAD_ALLOW_UNKNOWN_FILE_ENDS" "true" | conv.ToBool }},
+  "requireAuthentication": {{ getenv "ETHERPAD_REQUIRE_AUTHENTICATION" "true" | conv.ToBool }},
+  "requireAuthorization": {{ getenv "ETHERPAD_REQUIRE_AUTHORIZATION" "false" | conv.ToBool }},
+  "trustProxy": {{ getenv "ETHERPAD_TRUST_PROXY" "false" | conv.ToBool }},
+  "disableIPlogging": {{ getenv "ETHERPAD_DISABLE_IP_LOGGING" "false" | conv.ToBool }},
 
   "users": {
-    {{- if (getenv "ETHERPAD_LDAP_AUTH_ENABLED" "false" | conv.Bool) }}
+    {{- if (getenv "ETHERPAD_LDAP_AUTH_ENABLED" "false" | conv.ToBool) }}
     "ldapauth": {
       "password": "dummy_password",
       "url": "{{ getenv "ETHERPAD_LDAP_HOST" }}",
@@ -86,13 +86,13 @@
     "{{ getenv "ETHERPAD_USER_NAME" "user" }}": {
       "password": "{{ getenv "ETHERPAD_USER_PASSWORD" "changeme" }}",
       "is_admin": false,
-      "readOnly": {{ getenv "ETHERPAD_USER_READONLY" "false" | conv.Bool }},
-      "canCreate": {{ getenv "ETHERPAD_USER_CANCREATE" "true" | conv.Bool }}
+      "readOnly": {{ getenv "ETHERPAD_USER_READONLY" "false" | conv.ToBool }},
+      "canCreate": {{ getenv "ETHERPAD_USER_CANCREATE" "true" | conv.ToBool }}
     }
   },
 
   "loadTest": false,
-  "indentationOnNewLine": {{ getenv "ETHERPAD_INDENTATION_ON_NEW_LINE" "false" | conv.Bool }},
+  "indentationOnNewLine": {{ getenv "ETHERPAD_INDENTATION_ON_NEW_LINE" "false" | conv.ToBool }},
   "loglevel": "{{ getenv "ETHERPAD_LOG_LEVEL" "INFO" }}",
 
   "logconfig": {
