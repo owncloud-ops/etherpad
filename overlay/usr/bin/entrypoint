@@ -21,7 +21,7 @@ if [ -n "$ETHERPAD_PLUGINS_REMOVE" ]; then
   log_info "Uninstall bundled plugins:"
   for PLUGIN in ${ETHERPAD_PLUGINS_REMOVE}; do
     log_info "Plugin '${PLUGIN}' removed"
-    npm uninstall --silent --no-progress "${PLUGIN}" >/dev/null
+    rm -rf "/opt/app/node_modules/${PLUGIN}"
   done
 fi
 
