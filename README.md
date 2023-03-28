@@ -2,6 +2,7 @@
 
 [![Build Status](https://drone.owncloud.com/api/badges/owncloud-ops/etherpad/status.svg)](https://drone.owncloud.com/owncloud-ops/etherpad)
 [![Docker Hub](https://img.shields.io/badge/docker-latest-blue.svg?logo=docker&logoColor=white)](https://hub.docker.com/r/owncloudops/etherpad)
+[![Quay.io](https://img.shields.io/badge/quay-latest-blue.svg?logo=docker&logoColor=white)](https://quay.io/repository/owncloudops/etherpad)
 
 Custom container image for [Etherpad](https://etherpad.org/).
 
