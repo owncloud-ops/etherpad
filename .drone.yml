@@ -49,6 +49,26 @@ steps:
     ref:
     - refs/heads/main
     - refs/tags/**
+  depends_on:
+      - dryrun
+
+- name: publish-quay
+  image: docker.io/plugins/docker
+  settings:
+    build_args:
+    - ETHERPAD_PLUGINS=ep_padlist2 ep_adminpads2 ep_ldapauth@0.4.0
+    dockerfile: Dockerfile
+    password:
+      from_secret: quay_password
+    repo: owncloudops/${DRONE_REPO_NAME}
+    username:
+      from_secret: quay_username
+  when:
+    ref:
+    - refs/heads/main
+    - refs/tags/**
+  depends_on:
+      - dryrun
 
 - name: release
   image: docker.io/plugins/github-release
