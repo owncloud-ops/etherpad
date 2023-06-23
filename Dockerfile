@@ -67,4 +67,5 @@ EXPOSE 9001
 USER app
 
 ENTRYPOINT ["/usr/bin/entrypoint"]
+HEALTHCHECK --interval=10s --timeout=5s --retries=3 CMD ["etherpad-healthcheck"]
 CMD []
