@@ -33,7 +33,7 @@ RUN apk --update --no-cache add libreoffice tidyhtml
 RUN addgroup -g 1001 -S app && \
     adduser -S -D -H -u 1001 -h /opt/app -s /sbin/nologin -G app -g app app
 
-RUN apk --update add --virtual .build-deps curl tar git make && \
+RUN apk --update add --virtual .build-deps curl tar git make sed && \
     curl -SsfL -o /usr/local/bin/gomplate "https://github.com/hairyhenderson/gomplate/releases/download/${GOMPLATE_VERSION}/gomplate_linux-amd64" && \
     curl -SsfL -o /usr/local/bin/wait-for "https://github.com/thegeeklab/wait-for/releases/download/${WAIT_FOR_VERSION}/wait-for" && \
     curl -SsfL "https://github.com/owncloud-ops/container-library/releases/download/${CONTAINER_LIBRARY_VERSION}/container-library.tar.gz" | tar xz -C / && \
@@ -55,6 +55,8 @@ RUN apk --update add --virtual .build-deps curl tar git make && \
     cd /opt/app/src/ && \
     npm ci --no-optional && \
     npm link && \
+    # force script to use ipv4 address for healthcheck
+    sed --follow-symlinks -i 's/localhost:9001/127.0.0.1:9001/g' /usr/local/bin/etherpad-healthcheck && \
     chown -R app:app /opt/app && \
     apk del .build-deps && \
     rm -f /opt/app/var/minified* && \
