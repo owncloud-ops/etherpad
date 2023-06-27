@@ -14,7 +14,7 @@ ARG WAIT_FOR_VERSION
 ARG CONTAINER_LIBRARY_VERSION
 
 # renovate: datasource=github-releases depName=ether/etherpad-lite
-ENV ETHERPAD_VERSION="${BUILD_VERSION:-v1.9.0}"
+ENV ETHERPAD_VERSION="${BUILD_VERSION:-1.9.1}"
 # renovate: datasource=github-releases depName=hairyhenderson/gomplate
 ENV GOMPLATE_VERSION="${GOMPLATE_VERSION:-v3.11.5}"
 # renovate: datasource=github-releases depName=thegeeklab/wait-for
