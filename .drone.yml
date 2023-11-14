@@ -48,6 +48,7 @@ steps:
       build_args:
         - ETHERPAD_PLUGINS=ep_padlist2 ep_adminpads2 ep_ldapauth@0.4.0
       dockerfile: Dockerfile
+      auto_tag: True
       password:
         from_secret: docker_password
       repo: owncloudops/${DRONE_REPO_NAME}
@@ -66,6 +67,7 @@ steps:
       build_args:
         - ETHERPAD_PLUGINS=ep_padlist2 ep_adminpads2 ep_ldapauth@0.4.0
       dockerfile: Dockerfile
+      auto_tag: True
       password:
         from_secret: quay_password
       registry: quay.io
