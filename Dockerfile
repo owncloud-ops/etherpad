@@ -1,4 +1,4 @@
-FROM docker.io/amd64/node:18-alpine@sha256:c0a5f02df6e631b75ee3037bd4389ac1f91e591c5c1e30a0007a7d0babcd4cd3
+FROM docker.io/amd64/node:18-alpine@sha256:8842b060b01af71c082cee310b428a2d825e940d9fd9e450e05d726aea66a480
 
 LABEL maintainer="ownCloud DevOps <devops@owncloud.com>"
 LABEL org.opencontainers.image.authors="ownCloud DevOps <devops@owncloud.com>"
