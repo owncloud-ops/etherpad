@@ -93,13 +93,5 @@
 
   "loadTest": false,
   "indentationOnNewLine": {{ getenv "ETHERPAD_INDENTATION_ON_NEW_LINE" "false" | conv.ToBool }},
-  "loglevel": "{{ getenv "ETHERPAD_LOG_LEVEL" "INFO" }}",
-
-  "logconfig": {
-    "appenders": [
-      {
-        "type": "console"
-      }
-    ]
-  }
+  "loglevel": "{{ getenv "ETHERPAD_LOG_LEVEL" "INFO" }}"
 }

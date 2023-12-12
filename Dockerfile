@@ -49,7 +49,7 @@ RUN apk --update add --virtual .build-deps curl tar git make sed && \
     curl -SsfL "https://github.com/ether/etherpad-lite/archive/${ETHERPAD_VERSION}.tar.gz" | \
         tar xz -C /opt/app -X /.tarignore --strip-components=1 && \
     cd /opt/app/ && \
-    npm i --no-save --legacy-peer-deps ${ETHERPAD_PLUGINS} || exit 1 && \
+    [ -z "${ETHERPAD_PLUGINS}" ] || npm i --no-save --legacy-peer-deps ${ETHERPAD_PLUGINS} || exit 1 && \
     cd /opt/app/node_modules && \
     ln -s ../src ep_etherpad-lite && \
     cd /opt/app/src/ && \
