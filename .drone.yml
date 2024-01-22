@@ -9,7 +9,7 @@ platform:
 
 steps:
   - name: security-build
-    image: docker.io/owncloudci/drone-docker-buildx:2
+    image: docker.io/owncloudci/drone-docker-buildx:3
     settings:
       build_args:
         - ETHERPAD_PLUGINS=ep_padlist2 ep_adminpads2 ep_ldapauth@0.4.0
@@ -43,7 +43,7 @@ steps:
       - security-scan
 
   - name: publish-dockerhub
-    image: docker.io/owncloudci/drone-docker-buildx:2
+    image: docker.io/owncloudci/drone-docker-buildx:3
     settings:
       build_args:
         - ETHERPAD_PLUGINS=ep_padlist2 ep_adminpads2 ep_ldapauth@0.4.0
@@ -62,7 +62,7 @@ steps:
       - changelog
 
   - name: publish-quay
-    image: docker.io/owncloudci/drone-docker-buildx:2
+    image: docker.io/owncloudci/drone-docker-buildx:3
     settings:
       build_args:
         - ETHERPAD_PLUGINS=ep_padlist2 ep_adminpads2 ep_ldapauth@0.4.0
